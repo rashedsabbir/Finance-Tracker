@@ -5,11 +5,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallet Tracker</title>
+    <title>Finance Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-
+    <header>
+        <h1 class="text-4xl font-bold text-center mt-10">My <span class="text-rose-700">Finance Tracker</span></h1>
+    </header>
+    <main class="w-4/5 mx-auto">
+        <!-- Deposit and Withdraw -->
+        <section class="mt-10">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <img src="images/finance-2.jpg" alt="Finance">
+                </div>
+                <div class="bg-yellow-100 p-5 rounded">
+                    <h4 class="text-2xl font-bold text-center mb-4">Income</h4>
+                    <div class="inline flex justify-center flex-rows ">
+                        <p class="font-semi-bold px-3 inline basis-2/7">Income:</p>
+                        <input id="income-input" class="border bg-gray-100 border-gray-500 rounded" type="text"
+                            placeholder="">
+                    </div>
+                    <div class="bg-yellow-100 p-8 rounded grid content-center flex justify-center">
+                        <h4 class="text-2xl font-bold text-center mb-4">Expenses</h4>
+                        <div class="inline-block">
+                            <p class="font-semi-bold px-3 inline">Food:</p>
+                            <input id="food-input" class="border bg-gray-100 border-gray-500 rounded w-1/2 mb-5 px-3"
+                                type="text" placeholder=""><br>
+                            <p class="font-semi-bold px-3 inline">Rent:</p>
+                            <input id="rent-input" class="border bg-gray-100 border-gray-500 rounded w-1/2 mb-5 px-3"
+                                type="text" placeholder=""><br>
+                            <p class="font-semi-bold px-3 inline">Cloths:</p>
+                            <input id="cloths-input" class="border bg-gray-100 border-gray-500 rounded w-1/2 mb-5 px-3"
+                                type="text" placeholder="">
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <button id="calculate-button"
+                            class="bg-yellow-600 px-4 rounded-br-lg py-2 text-white font-medium">Calculate</button>
+                    </div>
+                    <div class="p-2">
+                        <h4 class="text-2xl font-bold flex justify-center">Total Expenses: <span id="total-expenses"
+                                class=" px-3">00</span>
+                        </h4>
+                    </div>
+                    <div class="p-1">
+                        <h4 class="text-2xl font-bold flex justify-center">Balence: <span id="Balence"
+                                class=" px-3">00</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
