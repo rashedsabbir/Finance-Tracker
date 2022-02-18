@@ -7,26 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finance Tracker</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/script.js"></script>
 </head>
 
 <body>
+    <!----Title added---->
+
     <header>
         <h1 class="text-4xl font-bold text-center mt-10">My <span class="text-rose-700">Finance Tracker</span></h1>
     </header>
     <main>
-        <!-- Deposit and Withdraw -->
+
         <section class="mt-10">
-            <div class="p-5 mx-auto grid gap-4 grid-cols-1 lg:grid-cols-2">
+            <div class="p-5 mx-auto grid gap-4 lg:grid-cols-2 grid-cols-1">
+
+                <!--Image added-->
                 <div>
                     <img src="images/finance-2.jpg" alt="Finance">
                 </div>
+
+
                 <div class="bg-yellow-100 p-5 rounded">
                     <h4 class="text-2xl font-bold text-center mb-4">Income</h4>
+
+                    <!--Income part added-->
+
                     <div class="inline flex justify-center flex-rows ">
                         <p class="font-semi-bold px-3 inline basis-2/7">Income:</p>
-                        <input id="income-input" class="border bg-gray-100 border-gray-500 rounded" type="text"
+                        <input id="income-input" class="border bg-gray-100 border-gray-500 px-3 rounded" type="text"
                             placeholder="">
                     </div>
+
+                    <!--Expense part added-->
                     <div class="bg-yellow-100 p-8 rounded grid content-center flex justify-center">
                         <h4 class="text-2xl font-bold text-center mb-4">Expenses</h4>
                         <div class="inline-block">
@@ -41,18 +53,25 @@
                                 type="text" placeholder="">
                         </div>
                     </div>
+
+                    <!--Calculate Button added-->
                     <div class="flex justify-center">
                         <button id="calculate-button"
                             class="bg-rose-700 px-4 rounded-br-lg py-2 text-white font-medium">Calculate</button>
+                        <small id="debit-credit-error" class="text-danger"></small>
                     </div>
+
+                    <!--Expense calculated part added-->
                     <div class="p-3">
                         <h4 class="text-2xl font-bold flex justify-center">Total Expenses: <span id="total-expenses"
                                 class="px-3">00</span>
                         </h4>
-                        <h4 class="text-2xl font-bold flex justify-center py-1">Balence: <span id="Balence"
+                        <h4 class="text-2xl font-bold flex justify-center py-1">Balance: <span id="balance"
                                 class="px-3">00</span>
                         </h4>
                     </div>
+
+                    <!--Savings Part added-->
                     <div class="flex justify-center inline">
                         <p class="font-semi-bold px-3 inline">Save:</p>
                         <input id="save-input" class="border bg-gray-100 border-gray-500 rounded w-1/4 mb-5 px-3"
@@ -60,19 +79,24 @@
                         <p class="font-semi-bold px-3 font-semi-bold inline">%</p>
                         <button id="save-button"
                             class="bg-rose-700 w-1/5 mb-5 rounded-br-lg text-white font-medium">Save</button>
+                        <small id="save-error" class="text-danger"></small>
                     </div>
+
+                    <!--Amount part added-->
                     <div>
                         <h4 class="text-2xl font-bold flex justify-center">Saving Amount: <span id="saving-amount"
                                 class="px-3">00</span>
                         </h4>
                         <h4 class="text-2xl font-bold flex justify-center py-1">Remaining Balence: <span
-                                id="remaining-Balence" class="px-3">00</span>
+                                id="remaining-Balance" class="px-3">00</span>
                         </h4>
                     </div>
+
                 </div>
             </div>
         </section>
     </main>
+
 </body>
 
 </html>
