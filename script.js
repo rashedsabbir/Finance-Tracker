@@ -4,88 +4,6 @@ function clearInputField(elementId) {
     document.getElementById(elementId).value = '';
 }
 
-
-// // reset all fields 
-
-function resetFields() {
-    clearInputField('income-input');
-    clearInputField('food-input');
-    clearInputField('rent-input');
-    clearInputField('cloths-input');
-    clearInputField('save-input');
-
-
-    document.getElementById('total-expenses').innerText = "";
-
-    document.getElementById('balance').innerText = "";
-
-    document.getElementById('saving-amount').innerText = "";
-
-    document.getElementById('remaining-Balence').innerText = "";
-}
-
-
-// Balance and expense calculation 
-
-
-
-document.getElementById('calculate-button').addEventListener('click', function () {
-
-    const income = document.getElementById('income-input').value;
-    const food = document.getElementById('food-input').value;
-    const rent = document.getElementById('rent-input').value;
-    const cloths = document.getElementById('cloths-input').value;
-
-    const con1 = isValidInput(income, 'income-input');
-    const con2 = isValidInput(food, 'food-input');
-    const con3 = isValidInput(rent, 'rent-input');
-    const con4 = isValidInput(cloths, 'cloths-input');
-
-    if (con1 && con2 && con3 && con4) {
-        const expenses = parseFloat(food) + parseFloat(rent) + parseFloat(cloths);
-
-        const errorField = document.getElementById('debit-credit-error');
-        if (expenses > parseFloat(income)) {
-            errorField.innerText = "* Your expense cannot exceed your total income."
-        }
-        else {
-            errorField.innerText = "";
-            document.getElementById('total-expenses').innerText = expenses;
-            const balance = parseFloat(income) - expenses;
-
-            document.getElementById('balance').innerText = balance;
-        }
-    }
-})
-
-
-
-// Savings and remainingBalance calculation
-
-document.getElementById('save-button').addEventListener('click', function () {
-    let savePercentage = document.getElementById('save-input').value;
-
-    if (isValidInput(savePercentage, 'save'));
-
-    savePercentage = parseFloat(savePercentage);
-
-    if (saveValidation(savePercentage)) {
-        const income = document.getElementById('income-input').value;
-
-        const balance = parseFloat(document.getElementById('balance-input').innerText);
-
-        const savingAmount = (income * savePercentage) / 100;
-
-        document.getElementById('saving-amount').innerText = savingAmount;
-
-        const remainingBalance = balance - savingAmount;
-
-        document.getElementById('remaining-Balance').innerText = remainingBalance;
-    }
-})
-
-
-
 // Validations involved in the calculation of saving amount
 
 function saveValidation(savePercentage) {
@@ -93,7 +11,7 @@ function saveValidation(savePercentage) {
     const income = document.getElementById('income-input').value;
     const balance = document.getElementById('balance').innerText;
 
-    let con1 = isValidInput(income, 'income-input');
+    let con1 = isValidInput(income, 'income');
     let con2 = false;
     if (!isNaN(balance) && balance.length > 0) {
         console.log('Hree');
@@ -115,6 +33,26 @@ function saveValidation(savePercentage) {
         errorField.innerText = "* Income or balance is not set properly";
         return false;
     }
+}
+
+
+// // reset all fields 
+
+function resetFields() {
+    clearInputField('income-input');
+    clearInputField('food-input');
+    clearInputField('rent-input');
+    clearInputField('cloths-input');
+    clearInputField('save-input');
+
+
+    document.getElementById('total-expenses').innerText = "";
+
+    document.getElementById('balance').innerText = "";
+
+    document.getElementById('saving-amount').innerText = "";
+
+    document.getElementById('remaining-Balence').innerText = "";
 }
 
 // Checks validity of the user inputs
@@ -152,3 +90,63 @@ function isValidInput(input, element) {
         }
     }
 }
+
+
+// Balance and expense calculation 
+
+
+
+document.getElementById('calculate-button').addEventListener('click', function () {
+
+    const income = document.getElementById('income-input').value;
+    const food = document.getElementById('food-input').value;
+    const rent = document.getElementById('rent-input').value;
+    const cloths = document.getElementById('cloths-input').value;
+
+    const con1 = isValidInput(income, 'income');
+    const con2 = isValidInput(food, 'food');
+    const con3 = isValidInput(rent, 'rent');
+    const con4 = isValidInput(cloths, 'clothes');
+
+    if (con1 && con2 && con3 && con4) {
+        const expenses = parseFloat(food) + parseFloat(rent) + parseFloat(cloths);
+
+        const errorField = document.getElementById('debit-credit-error');
+        if (expenses > parseFloat(income)) {
+            errorField.innerText = "* Your expense cannot exceed your total income."
+        }
+        else {
+            errorField.innerText = "";
+            document.getElementById('total-expenses').innerText = expenses;
+            const balance = parseFloat(income) - expenses;
+
+            document.getElementById('balance').innerText = balance;
+        }
+    }
+})
+
+
+
+// Savings and remainingBalance calculation
+
+document.getElementById('save-button').addEventListener('click', function () {
+    let savePercentage = document.getElementById('save-input').value;
+
+    if (isValidInput(savePercentage, 'save'));
+
+    savePercentage = parseFloat(savePercentage);
+
+    if (saveValidation(savePercentage)) {
+        const income = document.getElementById('income-input').value;
+
+        const balance = parseFloat(document.getElementById('balance').innerText);
+
+        const savingAmount = (income * savePercentage) / 100;
+
+        document.getElementById('saving-amount').innerText = savingAmount;
+
+        const remainingBalance = balance - savingAmount;
+
+        document.getElementById('remaining-Balance').innerText = remainingBalance;
+    }
+})
