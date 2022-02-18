@@ -1,11 +1,11 @@
-// clear the input fields values
+// // clear the input fields values
 
 function clearInputField(elementId) {
     document.getElementById(elementId).value = '';
 }
 
 
-// reset all fields 
+// // reset all fields 
 
 function resetFields() {
     clearInputField('income-input');
@@ -27,8 +27,10 @@ function resetFields() {
 
 // Balance and expense calculation 
 
+
+
 document.getElementById('calculate-button').addEventListener('click', function () {
-    console.log('button clicked');
+
     const income = document.getElementById('income-input').value;
     const food = document.getElementById('food-input').value;
     const rent = document.getElementById('rent-input').value;
@@ -58,12 +60,12 @@ document.getElementById('calculate-button').addEventListener('click', function (
 
 
 
-// Savings and remainingBalance calculation 
+// Savings and remainingBalance calculation
 
 document.getElementById('save-button').addEventListener('click', function () {
     let savePercentage = document.getElementById('save-input').value;
 
-    if (isValidInput(savePercentage, 'save-input'));
+    if (isValidInput(savePercentage, 'save'));
 
     savePercentage = parseFloat(savePercentage);
 
@@ -82,12 +84,14 @@ document.getElementById('save-button').addEventListener('click', function () {
     }
 })
 
+
+
 // Validations involved in the calculation of saving amount
 
 function saveValidation(savePercentage) {
     const errorField = document.getElementById('save-error');
     const income = document.getElementById('income-input').value;
-    const balance = document.getElementById('balance-input').innerText;
+    const balance = document.getElementById('balance').innerText;
 
     let con1 = isValidInput(income, 'income-input');
     let con2 = false;
